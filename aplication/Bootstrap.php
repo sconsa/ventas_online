@@ -9,9 +9,13 @@
 			$metodo = $peticion->getMetodo();
 			$argumentos = $peticion->getArgumentos();
 
-			//echo $rutaControlador; exit();
+			/*echo "controller:" . $controller . "<br/>";
+			echo "ruta: controllers" . DS . $controller . ".php<br/><br/><br/>";
 
-			if(is_readable($rutaControlador)) // verificamos si el archivo de la ruta enviada existe y es legible lo importara
+			echo $rutaControlador; exit();
+			*/
+
+			if(is_readable($rutaControlador)) // verificamos si el archivo de la ruta enviada existe y si es legible lo importara
 			{
 				require_once($rutaControlador);
 
@@ -37,7 +41,7 @@
 			}
 			else
 			{
-				throw new Exception("No encontrado");
+				throw new Exception("Controlador: <strong>" . $peticion->getControlador() . "</strong> no encontrado<br/>El archivo: <strong>" . $controller . ".php</strong> no existe en la<br/>Ruta: <strong>controllers/</strong><br/>Origen del mensaje: <strong>/aplication/Bootstrap.php</strong>");
 			}
 		}
 	}

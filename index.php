@@ -10,6 +10,7 @@
 	require_once APP_PATH . 'Registro.php';
 	require_once APP_PATH . 'Request.php';
 	require_once APP_PATH . 'View.php';
+	require_once APP_PATH . 'Database.php';
 	
 	//echo '<pre>' . print_r(get_required_files());
 

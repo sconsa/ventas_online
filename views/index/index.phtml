@@ -1,0 +1,25 @@
+<h2>Vista Index....</h2>
+<!--<pre><?php print_r($this->posts); ?></pre>-->
+<table>
+<?php
+	if(isset($this->posts) && count($this->posts) > 0) // Validamos que exista el arrelgo y ademas que tenga por lo menos algun item
+	{
+		for($i=0;$i<count($this->posts); $i++)
+		{
+?>
+	<tr>
+		<td><?php echo $this->posts[$i]["id"] ?></td>
+		<td><?php echo $this->posts[$i]["titulo"] ?></td>
+		<td><?php echo $this->posts[$i]["cuerpo"] ?></td>
+	</tr>
+<?php
+		}
+	}
+	else
+	{
+?>
+	<p><strong>No hay Post ! ! !</strong></p>
+<?php
+	}
+?>
+</table>
