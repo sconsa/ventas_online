@@ -12,7 +12,8 @@
 		{
 			if(isset($_GET['url']))
 			{
-				$url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL); // filter_inpiut toma el parametro INPUT_GET por via GET, lo pasa por FILTER_SANTINIZE_URL y lo devuelve filtrado.
+				//$url = filter_input(INPUT_GET, 'url', FILTER_SANITIZE_URL); // filter_inpiut toma el parametro INPUT_GET por via GET, lo pasa por FILTER_SANTINIZE_URL y lo devuelve filtrado es decir, Elimina todos los caracteres excepto letras, dígitos y $-_.+!*'(),{}|\\^~[]`<>#%";/?:@&=
+				$url = filter_input(INPUT_GET, 'url', FILTER_UNSAFE_RAW); // FILTER_UNSAFE_RAW es igual a FILTER_DEFAULT No hace nada, opcionalmente eliminar o condificar caracteres
 				$url = explode('/', $url); // Creamos un arreglo diviendo la url por cada '/' que encuentre.
 				$url = array_filter($url); // Elimina todos aquellos elementos que no sean validos en la url.
 
